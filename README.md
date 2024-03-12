@@ -6,21 +6,28 @@
 ## Directory Structure
 
      static-site-generator/
+    │
+    ├──  static/
+    ├──  content/
+    │
     ├──  main.sh
     ├──  test.sh
     ├──  server.py
-    ├──  .gitignore
-    ├──  pyrightconfig.json
     │
     ├──  src/
     │   ├──  main.py
+    │   ├──  copystatic.py
+    │   ├──  gencontent.py
+    │   │
+    │   ├──  markdown_blocks.py
+    │   ├──  inline_markdown.py
     │   ├──  textnode.py
     │   ├──  htmlnode.py
-    │   ├──  inline_markdown.py
+    │   │
+    │   ├──  test_markdown_blocks.py
+    │   ├──  test_inline_markdown.py
     │   ├──  test_textnode.py
-    │   ├──  test_htmlnode.py
-    │   └──  test_inline_markdown.py
+    │   └──  test_htmlnode.py
     │
-    └──  public/
-        ├──  index.html
-        └──  styles.css
+    ├──  pyrightconfig.json
+    └──  .gitignore

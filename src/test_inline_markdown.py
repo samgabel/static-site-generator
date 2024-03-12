@@ -153,7 +153,7 @@ class TestInlineMarkdown(unittest.TestCase):
         )
 
     def test_split_nodes_link_wrong_text_type(self):
-        node = TextNode( "`print(Hello world!)`", text_type_code)
+        node = TextNode("`print(Hello world!)`", text_type_code)
         self.assertListEqual(
             [
                 TextNode("`print(Hello world!)`", text_type_code),
