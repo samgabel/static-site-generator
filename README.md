@@ -5,7 +5,7 @@
 
 ## Directory Structure
 
-     static-stite-generator/
+     static-site-generator/
     ├──  main.sh
     ├──  test.sh
     ├──  server.py

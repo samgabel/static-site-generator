@@ -10,8 +10,8 @@ def copy_files_recursively(src_path: str, dst_path: str):
     for item in os.listdir(path=src_path):
         extended_src = os.path.join(src_path, item)
         extended_dst = os.path.join(dst_path, item)
-        print(f" * {extended_src} -> {extended_dst}")
         if os.path.isfile(extended_src):
+            print(f" * {extended_src} -> {extended_dst}")
             shutil.copy(extended_src, extended_dst)
             src_list.append(extended_src)
         else:
