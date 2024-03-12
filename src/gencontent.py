@@ -1,16 +1,21 @@
+import pathlib
 import os
 from markdown_blocks import markdown_to_html_node
 
-def extract_title_markdown(markdown: str) -> str:
-    lines = markdown.split("\n")
-    title = ""
-    for line in lines:
-        if line.startswith("# "):
-            title = line[2:]
-    return title
+
+def generate_pages_recursive(src_path: str, template_path: str, dst_path: str):
+    'Will convert md to html, insert title and content into an html template, and create and write content dir structure to public dir.'
+    for file in os.listdir(src_path):
+        extended_src = f"{src_path}/{file}"
+        extended_dst = f"{dst_path}/{file}"
+        if os.path.isfile(extended_src):
+            extended_dst = f"{extended_dst[:-3]}.html"
+            generate_page(extended_src, template_path, extended_dst)
+        else:
+            generate_pages_recursive(extended_src, template_path, extended_dst)
 
 
-def generate_page(src_path: str, template_path: str, dst_path:str):
+def generate_page(src_path: str, template_path: str, dst_path: str):
     print(f"Generating page from {src_path} to {dst_path} using {template_path}")
     with open(src_path, 'r') as f:
         md = f.read()
@@ -29,5 +34,14 @@ def generate_page(src_path: str, template_path: str, dst_path:str):
         f.write(template)
 
 
+def extract_title_markdown(markdown: str) -> str:
+    lines = markdown.split("\n")
+    title = ""
+    for line in lines:
+        if line.startswith("# "):
+            title = line[2:]
+    return title
+
+
 if __name__ == "__main__":
-    generate_page("/Users/samgabel/Projects/Boot.Dev/static-site-generator/content/index.md", "/Users/samgabel/Projects/Boot.Dev/static-site-generator/template.html", "/Users/samgabel/Projects/Boot.Dev/static-site-generator/public")
+    print(generate_pages_recursive("./content", "", ""))

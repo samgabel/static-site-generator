@@ -13,6 +13,7 @@
     ├──  main.sh
     ├──  test.sh
     ├──  server.py
+    ├──  template.html
     │
     ├──  src/
     │   ├──  main.py
