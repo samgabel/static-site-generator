@@ -1,4 +1,3 @@
-import pathlib
 import os
 from markdown_blocks import markdown_to_html_node
 
@@ -16,7 +15,8 @@ def generate_pages_recursive(src_path: str, template_path: str, dst_path: str):
 
 
 def generate_page(src_path: str, template_path: str, dst_path: str):
-    print(f"Generating page from {src_path} to {dst_path} using {template_path}")
+    'Used by `generate_pages_recursive` in order to convert md to html'
+    print(f" * [{template_path}]: {src_path} -> {dst_path}")
     with open(src_path, 'r') as f:
         md = f.read()
     with open(template_path, 'r') as f:
@@ -35,13 +35,10 @@ def generate_page(src_path: str, template_path: str, dst_path: str):
 
 
 def extract_title_markdown(markdown: str) -> str:
+    'Used by generate page in order to extract the main h1 of the md'
     lines = markdown.split("\n")
     title = ""
     for line in lines:
         if line.startswith("# "):
             title = line[2:]
     return title
-
-
-if __name__ == "__main__":
-    print(generate_pages_recursive("./content", "", ""))

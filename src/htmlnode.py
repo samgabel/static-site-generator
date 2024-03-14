@@ -1,7 +1,5 @@
-from typing import Union
-
 class HTMLNode:
-    def __init__(self, tag=None, value=None, children=None, props=None):
+    def __init__(self, tag: str | None = None, value: str | None = None, children: list['HTMLNode'] | None = None, props: dict[str, str] | None = None):
         if not isinstance(tag, str) and tag is not None:
             raise TypeError("Tag must be a string")
         if not isinstance(value, str) and value is not None:
@@ -11,13 +9,13 @@ class HTMLNode:
         if not isinstance(props, dict) and props is not None:
             raise TypeError("Props must be a dictionary")
         # A string representing the HTML tag name (e.g. "p", "a", "h1", etc.)
-        self.tag: Union[str, None] = tag
+        self.tag = tag
         # A string representing the value of the HTML tag (e.g. the text inside a paragraph)
-        self.value: Union[str, None] = value
+        self.value = value
         # A list of HTMLNode objects representing the children of this node
-        self.children: Union[list[HTMLNode], None] = children
+        self.children = children
         # A dictionary representing the attributes of the HTML tag. For example, a link (<a> tag) might have {"href": "https://www.google.com"}
-        self.props: Union[dict[str, str], None] = props
+        self.props = props
 
     def to_html(self):
         'To be overwritten by a childclass'

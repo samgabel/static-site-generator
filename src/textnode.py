@@ -9,7 +9,13 @@ text_type_image = "image"
 
 
 class TextNode:
-    def __init__(self, text, text_type, url=None):
+    def __init__(self, text: str, text_type: str, url: str | None = None):
+        if not isinstance(text, str):
+            raise TypeError("text must be a string")
+        if not isinstance(text_type, str):
+            raise TypeError("text_type must be a string")
+        if not isinstance(url, str) and url is not None:
+            raise TypeError("url must be a list")
         self.text = text
         self.text_type = text_type
         self.url = url

@@ -26,7 +26,7 @@ def text_to_textnodes(text: str) -> list[TextNode]:
 
 def split_nodes_delimiter(old_nodes: list[TextNode], delimiter: str, text_types: str) -> list[TextNode]:
     'Will split up text nodes based on `text_types` and return a list of new text nodes'
-    new_nodes = []
+    new_nodes: list[TextNode] = []
     for on in old_nodes:
         # only allow TextNode objects into the split process
         if not isinstance(on, TextNode):
@@ -56,7 +56,7 @@ def split_nodes_delimiter(old_nodes: list[TextNode], delimiter: str, text_types:
 
 def split_nodes_image(old_nodes: list[TextNode]) -> list[TextNode]:
     'Similar to `split_nodes_delimiter()`, but will split out image details and return a list of text and image TextNode objects'
-    new_nodes = []
+    new_nodes: list[TextNode] = []
     for on in old_nodes:
         # load in list of tuples with image details
         image_tup = extract_markdown_images(on.text)
@@ -90,7 +90,7 @@ def split_nodes_link(old_nodes: list[TextNode]) -> list[TextNode]:
     # TODO: feat: image links
     # Allow for image links (image nested in a link)
     # see unittest (NOTE) for details
-    new_nodes = []
+    new_nodes: list[TextNode] = []
     for on in old_nodes:
         # for instances when our old_node is not a text_type "text"
         if on.text_type != text_type_text:

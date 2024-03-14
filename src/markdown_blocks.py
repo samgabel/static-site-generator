@@ -41,7 +41,7 @@ def markdown_to_blocks(markdown: str) -> list[str]:
     return markdown_blocks
 
 
-def block_to_html_node(block):
+def block_to_html_node(block: str) -> ParentNode:
     '''
     This gives us a way to return a second-level ParentNode and its children given a md block.
     All it is doing is pointing us to the right function based on `block_type`
