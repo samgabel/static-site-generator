@@ -1,5 +1,10 @@
 class HTMLNode:
-    def __init__(self, tag: str | None = None, value: str | None = None, children: list['HTMLNode'] | None = None, props: dict[str, str] | None = None):
+    def __init__(
+            self, tag: str | None = None,
+            value: str | None = None,
+            children: list['ParentNode'] | list['LeafNode'] | None = None,
+            props: dict[str, str | None] | None = None
+        ):
         if not isinstance(tag, str) and tag is not None:
             raise TypeError("Tag must be a string")
         if not isinstance(value, str) and value is not None:
@@ -38,7 +43,12 @@ class HTMLNode:
 
 # It's a "leaf" in the tree of HTML nodes. It's a node with no children.
 class LeafNode(HTMLNode):
-    def __init__(self, tag, value, props=None):
+    def __init__(
+            self,
+            tag: str | None,
+            value: str | None,
+            props: dict[str, str | None] | None = None
+        ):
         super().__init__(tag, value, props=props)
 
     def to_html(self):
@@ -57,7 +67,12 @@ class LeafNode(HTMLNode):
 
 # We need to be able to recurse through nested HTML nodes
 class ParentNode(HTMLNode):
-    def __init__(self, tag, children=None, props=None):
+    def __init__(
+            self,
+            tag: str | None,
+            children: list['ParentNode'] | list[LeafNode] | None = None,
+            props: dict[str, str | None] | None = None
+        ):
         super().__init__(tag, children=children, props=props)
 
     def to_html(self):

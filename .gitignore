@@ -1,4 +1,4 @@
-public/
-__pycache__/
 venv/
-pyrightconfig.json
+pyproject.toml
+__pycache__/
+public/
