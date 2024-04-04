@@ -3,32 +3,17 @@
 
 
 
-## Directory Structure
+## Overview
 
-     static-site-generator/
-    │
-    ├──  static/
-    ├──  content/
-    │
-    ├──  main.sh
-    ├──  test.sh
-    ├──  server.py
-    ├──  template.html
-    │
-    ├──  src/
-    │   ├──  main.py
-    │   ├──  copystatic.py
-    │   ├──  gencontent.py
-    │   │
-    │   ├──  markdown_blocks.py
-    │   ├──  inline_markdown.py
-    │   ├──  textnode.py
-    │   ├──  htmlnode.py
-    │   │
-    │   ├──  test_markdown_blocks.py
-    │   ├──  test_inline_markdown.py
-    │   ├──  test_textnode.py
-    │   └──  test_htmlnode.py
-    │
-    ├──  pyrightconfig.json
-    └──  .gitignore
+This is a static site generator written completely in Python. It simply takes static assets located in `/static` and markdown notes located in `/content`, and delivers an HTML webpage on `localhost:8888`. The output webpage replicates the directory structure found in `/content`. During the conversion process, it uses the template `template.html` in order to structure the newly converted tags.
+
+
+
+
+## Usage
+
+1. Clone this repository to your client machine
+2. Run `chmod +x main.sh` file in the root of the project
+3. Now run the `main.sh` script to convert the sample markdown files (in `/content`) into HTML files in a newly created directory called `/public`
+4. Navigate to `localhost:8888` to see the newly created webpage
+5. (Optional) Replace the sample files in `/content` and `/static` with your own files!
