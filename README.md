@@ -7,6 +7,7 @@
 
 This is a static site generator written completely in Python. It simply takes static assets located in `/static` and markdown notes located in `/content`, and delivers an HTML webpage on `localhost:8888`. The output webpage replicates the directory structure found in `/content`. During the conversion process, it uses the template `template.html` in order to structure the newly converted tags.
 
+![showcase](https://github.com/samgabel/static-site-generator/blob/main/showcase.png?raw=true)
 
 
 

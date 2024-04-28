@@ -257,7 +257,9 @@ def test_text_to_textnodes_4():
         TextNode("[link](https://google.com)", text_type_code),
     ]
 
-# NOTE: Allow for image links (image nested within a link)
+# NOTE: test case condition
+# Allow for image links (image nested within a link)
+
 # def test_5_text_to_textnodes(self):
 #     text = "This is a image nested in a link (an image that when clicked goes to a link) [![*image](https://image.png)](https://google.com)"
 #     self.assertListEqual(

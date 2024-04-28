@@ -35,8 +35,9 @@ This is the same paragraph on a new line
             markdown_to_blocks(markdown)
         )
 
-    # NOTE: This test case will fail until we include functionality for keeping tabs and
-    # separating blocks by "\n" + new block type instead of just "\n\n"
+# NOTE: test case condition
+# This test case will fail until we include functionality for keeping tabs and
+# separating blocks by "\n" + new block type instead of just "\n\n"
 
 #     def test_markdown_to_blocks_extras(self):
 #         markdown = '''
